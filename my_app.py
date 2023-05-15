@@ -42,7 +42,10 @@ class MainWin(QWidget):
        self.setWindowTitle(txt_title)
        self.resize(win_width, win_height)
        self.move(win_x, win_y)
+   
+   def main():
+       app = QApplication([])
+       mw = MainWin()
+       app.exec_()
 
-app = QApplication([])
-mw = MainWin()
-app.exec_()
+main()
