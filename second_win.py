@@ -6,7 +6,6 @@ from PyQt5.QtWidgets import QApplication, QWidget, QHBoxLayout, QVBoxLayout, \
 from instr import *
 from final_win import *
 
-# NEW
 class Experiment():
     def __init__(self, age, test1, test2, test3):
         self.age = age
@@ -50,7 +49,6 @@ class TestWin(QWidget):
         self.text_test2 = QLabel(txt_test2)
         self.text_test3 = QLabel(txt_test3)
         self.text_timer = QLabel(txt_timer)
-        # NEW
         self.text_timer.setFont(QFont("Times", 36, QFont.Bold))
 
         self.line_name = QLineEdit(txt_hintname)
@@ -81,7 +79,6 @@ class TestWin(QWidget):
         self.h_line.addLayout(self.r_line)       
         self.setLayout(self.h_line)
 
-    # NEW (метод изменен)
     def next_click(self):
         self.hide()
         self.exp = Experiment(int(self.line_age.text()), self.line_test1.text(), self.line_test2.text(), self.line_test2.text())
@@ -102,7 +99,6 @@ class TestWin(QWidget):
         #одно приседание в 1.5 секунды
         self.timer.start(1500)
 
-    # NEW
     def timer_final(self):
         global time
         time = QTime(0, 1, 0)
@@ -110,7 +106,6 @@ class TestWin(QWidget):
         self.timer.timeout.connect(self.timer3Event)
         self.timer.start(1000)
 
-    # NEW
     def timer1Event(self):
         global time
         time = time.addSecs(-1)
@@ -120,7 +115,6 @@ class TestWin(QWidget):
         if time.toString("hh:mm:ss") == "00:00:00":
             self.timer.stop()
 
-    # NEW
     def timer2Event(self):
         global time
         time = time.addSecs(-1)
@@ -130,7 +124,6 @@ class TestWin(QWidget):
         if time.toString("hh:mm:ss") == "00:00:00":
             self.timer.stop()
 
-    # NEW
     def timer3Event(self):
         global time
         time = time.addSecs(-1)
@@ -145,7 +138,6 @@ class TestWin(QWidget):
         if time.toString("hh:mm:ss") == "00:00:00":
             self.timer.stop()
 
-    # NEW (метод изменен)
     def connects(self):
         self.btn_next.clicked.connect(self.next_click)
         self.btn_test1.clicked.connect(self.timer_test)
