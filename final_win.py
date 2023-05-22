@@ -22,7 +22,6 @@ class FinalWin(QWidget):
         # старт:
         self.show()
 
-    # NEW
     def results(self):
         if self.exp.age < 7:
             self.index = 0
@@ -84,7 +83,6 @@ class FinalWin(QWidget):
             else:
                 return txt_res5
 
-    # NEW (метод изменен)
     def initUI(self):
         ''' создаёт графические элементы '''
         self.work_text = QLabel(txt_workheart + self.results())
